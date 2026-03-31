@@ -65,6 +65,10 @@ class _ToDoListState extends State<ToDoList> {
                       _tarefas[index]["concluida"] = valor!;
                     }),
                   ),
+                  trailing: ElevatedButton(
+                    onPressed: () => _deletarTarefa(index),
+                    child: Icon(Icons.delete),
+                  ),
                 ),
               ),
             ),
@@ -84,5 +88,11 @@ class _ToDoListState extends State<ToDoList> {
         _tarefaController.clear();
       });
     }
+  }
+
+  void _deletarTarefa(int index) {
+    setState(() {
+      _tarefas.removeAt(index);
+    });
   }
 }
